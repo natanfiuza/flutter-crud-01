@@ -1,16 +1,12 @@
-# flutter_crud
+# Flutter CRUD exemplo
 
-A new Flutter project.
 
-## Getting Started
+Um projeto em Flutter exemplo de uma aplicação CRUD ( create ,read, update, delete)
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Começando
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+[Documentação do Flutter](https://docs.flutter.dev/)

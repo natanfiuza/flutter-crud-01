@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/views/user_list.dart';
+import 'package:flutter_crud/views/user_form.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_crud/provider/users.dart';
-
+import 'package:flutter_crud/routes/app_routes.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -21,11 +22,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.blueGrey,
           visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        // home: const MyHomePage(title: 'Flutter Demo Home Page'),
-        home: UserList(),
+        ), 
+        routes: {
+          AppRoutes.HOME: (_) => UserList(),
+          AppRoutes.USER_FORM: (_) => UserForm(),
+        },
       ),
     );
   }

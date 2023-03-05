@@ -3,7 +3,7 @@ import 'package:flutter_crud/components/user_tile.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_crud/provider/users.dart';
 import 'package:flutter_crud/models/user.dart';
-
+import 'package:flutter_crud/routes/app_routes.dart';
 
 class UserList extends StatelessWidget {
   @override
@@ -15,10 +15,10 @@ class UserList extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: (){
-              users.remove(users.byIndex(0));
-             }, 
-            ),
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
+            },
+          ),
         ],
       ),
       body: ListView.builder(

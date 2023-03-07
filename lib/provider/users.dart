@@ -22,7 +22,6 @@ class Users with ChangeNotifier {
     return _itens.values.elementAt(i);
   }
 
-
   /**
    * Insere um item no Map
    */
@@ -30,15 +29,10 @@ class Users with ChangeNotifier {
     if (user == null) {
       return;
     }
-    print('user,' + user.id);
-    print(_itens);
-    print(_itens.values.toList().indexOf(user));
-     
-    if (
-        user.id != null &&
+
+    if (user.id != null &&
         user.id.trim().isNotEmpty &&
         _itens.containsKey(user.id)) {
-      
       _itens.update(
           user.id,
           (_) => User(
@@ -50,7 +44,6 @@ class Users with ChangeNotifier {
     } else {
       const uuid = Uuid();
       final String id = uuid.v4();
-      print('Itens insert');
       _itens.putIfAbsent(
           id,
           () => User(

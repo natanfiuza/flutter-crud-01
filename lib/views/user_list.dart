@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter_crud/provider/users.dart';
 import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/routes/app_routes.dart';
-
+import 'package:uuid/uuid.dart';
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,13 @@ class UserList extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.USER_FORM);
+            onPressed: () {               
+              Navigator.of(context).pushNamed(AppRoutes.USER_FORM,arguments: User(
+                id: '',
+                name: '',
+                email: '',
+                avatarUrl: '',
+              ));
             },
           ),
         ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/data/dummy_users.dart';
 import 'dart:math';
+import 'package:uuid/uuid.dart';
 
 class Users with ChangeNotifier {
   final Map<String, User> _itens = {...DUMMY_USERS};
@@ -21,6 +22,7 @@ class Users with ChangeNotifier {
     return _itens.values.elementAt(i);
   }
 
+
   /**
    * Insere um item no Map
    */
@@ -28,9 +30,15 @@ class Users with ChangeNotifier {
     if (user == null) {
       return;
     }
-    if (user.id != null &&
+    print('user,' + user.id);
+    print(_itens);
+    print(_itens.values.toList().indexOf(user));
+     
+    if (
+        user.id != null &&
         user.id.trim().isNotEmpty &&
-        _itens.containsKey(user.id)) {
+        _itens.containsKey e(user.id)) {
+      
       _itens.update(
           user.id,
           (_) => User(
@@ -40,7 +48,9 @@ class Users with ChangeNotifier {
                 avatarUrl: user.avatarUrl,
               ));
     } else {
-      final String id = Random().nextDouble.toString();
+      const uuid = Uuid();
+      final String id = uuid.v4();
+      print('Itens insert');
       _itens.putIfAbsent(
           id,
           () => User(
@@ -53,8 +63,9 @@ class Users with ChangeNotifier {
 
     notifyListeners();
   }
+
   void remove(User user) {
-    if(user != null && user.id != null) {
+    if (user != null && user.id != null) {
       _itens.remove(user.id);
       notifyListeners();
     }
